@@ -31,12 +31,12 @@
     "postcss-modules": "^4.3.1",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
-    "sass": "^1.83.4",
+    "sass": "^1.95.0",
     "vitest": "^3.0.9",
     "vue": "^3.5.13",
     "vue-final-modal": "^4.5.5",
     "vue-router": "^4.5.0",
-    "vue-template-compiler": "^2.7.16",
+    "vue-template-compiler": "^0.1.0",
     "vuex": "^4.1.0"
   },
   "dependencies": {
@@ -45,7 +45,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/vue-fontawesome": "^3.0.8",
-    "bulma": "1.0.3"
+    "bulma": "1.0.3",
+    "pnpm": "^10.10.0"
   },
   "packageManager": "pnpm@10.5.2"
 }

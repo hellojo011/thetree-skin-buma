@@ -4,12 +4,13 @@
         <div :class="bulma({ 'navbar-menu': true, 'is-active': isNavbarActive })" id="mainNavbar" data-testid="main-navbar">
             <div :class="bulma('navbar-start')">
                 <nuxtLink to="/RecentChanges" :class="bulma('navbar-item')">
-                    <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faBinoculars" /> </span>&nbsp; 최근 변경
+                    <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faBinoculars" /> </span>&nbsp; {{ $t('skin.recent_changes') }}
                 </nuxtLink>
                 <nuxtLink to="/RecentDiscuss" :class="bulma('navbar-item')">
-                    <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faComments" /> </span>&nbsp; 최근 토론
+                    <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faComments" /> </span>&nbsp; {{ $t('skin.recent_discuss') }}
                 </nuxtLink>
-                <bDropdown :icon="faCogs" label="도구">
+                <bDropdown :icon="faCogs" :label="$t('skin.special_tab')">
+				    <a :class="bulma('navbar-item')" href="https://board.furpark.kr" target="_blank"><span :class="bulma('icon')"><FontAwesomeIcon :icon="faHouse" /></span>&nbsp; Furpark Shelter</a>
                     <nuxtLink :class="bulma('navbar-item')" :to="menu.href" v-for="menu in toolMenus" :key="menu.href">
                         <span :class="bulma('icon')"><FontAwesomeIcon :icon="menu.icon" /></span>
                         &nbsp;{{ menu.text }}
@@ -38,7 +39,7 @@ import loggedInUserMenu from './loggedInUserMenu.vue';
 import anonymousUserMenu from './anonymousUserMenu.vue';
 import fixedToolMenus from './fixedToolMenus';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import { faBinoculars, faComments, faCogs } from '@fortawesome/free-solid-svg-icons';
+import { faBinoculars, faComments, faCogs, faHouse } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 let isNavbarActive = ref(false);
@@ -46,7 +47,7 @@ const toggleNavbarBurger = () => (isNavbarActive.value = !isNavbarActive.value);
 const store = useStore();
 
 const toolMenus = computed(() =>
-    fixedToolMenus.concat(
+    fixedToolMenus().concat(
         (store.state.session.menus ?? []).map((i) => ({
             icon: faHeart,
             text: i.t,

@@ -1,22 +1,25 @@
 <template>
-    <bDropdown right-dropdown :icon="faUserSecret" label="익명">
+    <bDropdown right-dropdown :icon="faUserSecret" :label="$t('skin_buma:anonymous')">
+		<settingModalLink :class="bulma('navbar-item')">
+		    <b>{{ $store.state.session.account.name }}</b>
+		</settingModalLink>
         <settingModalLink :class="bulma('navbar-item')">
-            <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faWrench" /> </span>&nbsp; 스킨 설정
+            <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faWrench" /> </span>&nbsp; {{ $t('skin_buma:skin_settings') }}
         </settingModalLink>
         <template v-if="uuid">
             <nuxtLink :to="contribution_link(uuid)" :class="bulma('navbar-item')">
-                <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faFileAlt" /> </span>&nbsp; 내 문서 기여 목록
+                <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faFileAlt" /> </span>&nbsp; {{ $t('skin.my_contribution_document') }}
             </nuxtLink>
             <nuxtLink :to="contribution_link_discuss(uuid)" :class="bulma('navbar-item')">
-                <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faFileContract" /> </span>&nbsp; 내 토론 기여 목록
+                <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faFileContract" /> </span>&nbsp; {{ $t('skin.my_contribution_discuss') }}
             </nuxtLink>
             <nuxtLink :to="contribution_link_edit_request(uuid)" :class="bulma('navbar-item')">
-                <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faFileSignature" /> </span>&nbsp; 내 편집 요청 기여 목록
+                <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faFileSignature" /> </span>&nbsp; {{ $t('skin.my_contribution_edit_request') }}
             </nuxtLink>
         </template>
         <div :class="bulma('navbar-divider')"></div>
         <nuxtLink :to="{ path: '/member/login', query: { redirect: $route.fullPath } }" :class="bulma('navbar-item')">
-            <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faSignInAlt" /> </span>&nbsp; 로그인
+            <span :class="bulma('icon')"> <FontAwesomeIcon :icon="faSignInAlt" /> </span>&nbsp; {{ $t('skin.login') }}
         </nuxtLink>
     </bDropdown>
 </template>

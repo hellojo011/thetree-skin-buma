@@ -1,0 +1,11 @@
+{
+    "starred": "Starred",
+	"unstarred": "Unstarred",
+	"special_page": "Special Docs",
+	"last_edit": "{{date}} It was last modified",
+	"notfound": "A document that doesn't exist. Feel free to contribute it yourself",
+	"terms": "Term of Services",
+	"skin_settings": "Skin Settings",
+	"anonymous": "Anonymous",
+    "mySandbox": "My User Sandbox Document"
+}

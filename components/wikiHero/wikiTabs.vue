@@ -6,7 +6,7 @@
                     <span :class="bulma('icon')">
                         <FontAwesomeIcon :icon="faStar" />
                     </span>
-                    <span class="wiki-article-menu-text"> {{ menu.starred ? '별찜 해제' : '별찜' }} (</span
+                    <span class="wiki-article-menu-text"> {{ menu.starred ? $t('skin_buma:unstarred') : $t('skin_buma:starred') }} (</span
                     ><span class="star-count">{{ menu.starCount }}</span
                     ><span class="wiki-article-menu-text">)</span>
                 </nuxtLink>
@@ -37,6 +37,8 @@ import { faKey } from '@fortawesome/free-solid-svg-icons';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import i18next from 'i18next'
+const t = i18next.t.bind(i18next)
 
 export default {
     mixins: [common],
@@ -58,43 +60,43 @@ export default {
                     active: ['wiki', 'notfound'].includes(viewName),
                     href: this.doc_action_link(document, 'w'),
                     icon: faEye,
-                    text: '읽기'
+                    text: i18next.t('acl.types.0')
                 },
                 {
                     active: ['edit', 'edit_request', 'edit_edit_request'].includes(viewName),
                     href: this.doc_action_link(document, 'edit'),
                     icon: faEdit,
-                    text: '편집'
+                    text: i18next.t('title_description.edit')
                 },
                 {
                     active: ['thread', 'thread_list', 'thread_list_clone'].includes(viewName),
                     href: this.doc_action_link(document, 'discuss'),
                     icon: faComments,
-                    text: '토론'
+                    text: i18next.t('title_description.thread')
                 },
                 {
                     active: viewName === 'move',
                     href: this.doc_action_link(document, 'move'),
                     icon: faArrowRight,
-                    text: '이동'
+                    text: i18next.t('title_description.move')
                 },
                 {
                     active: viewName === 'delete',
                     href: this.doc_action_link(document, 'delete'),
                     icon: faTrashAlt,
-                    text: '삭제'
+                    text: i18next.t('title_description.delete')
                 },
                 {
                     active: viewName === 'backlink',
                     href: this.doc_action_link(document, 'backlink'),
                     icon: faRandom,
-                    text: '역링크'
+                    text: i18next.t('title_description.backlinks')
                 },
                 {
                     active: viewName === 'history',
                     href: this.doc_action_link(document, 'history'),
                     icon: faHistory,
-                    text: '역사'
+                    text: i18next.t('title_description.history')
                 },
                 {
                     active: viewName === 'acl',
@@ -118,7 +120,7 @@ export default {
                     active: false,
                     href: this.contribution_link(this.$store.state.page.data.user.uuid),
                     icon: faChartLine,
-                    text: '기여 목록'
+                    text: i18next.t('skin.contribution_link')
                 });
 
             return menus;

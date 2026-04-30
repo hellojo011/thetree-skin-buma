@@ -29,8 +29,8 @@
 .jump-buttons ul li {
     cursor: pointer;
     display: inline-block;
-    background: #00d1b2;
-    border: 1px solid #00c0a3;
+    background: #b73340;
+    border: 1px solid #6a1e25;
     font-size: 30px;
     text-align: center;
     color: white;
@@ -39,7 +39,7 @@
 }
 
 .jump-buttons ul li:hover {
-    background: #00917b;
+    background: #8b2731;
 }
 
 .jump-buttons ul li:first-child {

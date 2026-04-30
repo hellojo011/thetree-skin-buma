@@ -30,6 +30,8 @@
 <style>
 @import './css/bulma.min.css';
 @import './css/layout.min.css';
+@import './css/name-gradient.css';
+@import './css/userDocumentProfile.css';
 </style>
 
 <script>
@@ -42,6 +44,8 @@ import bNotification from './components/bulma/b-notification.vue';
 import jumpButtons from './components/jumpButtons.vue';
 import skinLicense from './components/skinLicense.vue';
 import bumaFooter from './components/footer.vue';
+import initEasterEgg from './easter-egg';
+import initKonamiEasterEgg from './konami-egg';
 
 export default {
     mixins: [common],
@@ -68,6 +72,16 @@ export default {
     watch: {
         '$store.state.currentTheme'(newValue) {
             this.changeTheme(newValue);
+        },
+		'$store.state.viewData.userProfile'(val) {
+			if (val) {
+				this.showProfileImage();
+			}
+        },
+        '$store.state.page.data.document.title'(val) {
+            const title = val?.trim().toLowerCase()
+            if (title !== 'do a barrel roll') {}
+			else {doABarrelRoll();}
         }
     },
     methods: {
@@ -90,10 +104,55 @@ export default {
                     break;
             }
         },
+        showProfileImage() {
+			this.$nextTick(() => {
+			    if(this.$store.state['viewData'].userProfile) {
+                    const existUserProfile = document.querySelector('.user-profile-table');
+                    if(existUserProfile) existUserProfile.remove();
+                    const content = document.querySelector('.wiki-content')
+                    let date = new Date(this.$store.state['viewData'].userProfile.createdAt).toLocaleDateString();
+                    let profileHtml = `<div class="wiki-paragraph">
+                          <table class="user-profile-table">
+                              <tr>
+                                  <td colspan=2 class="avatar-cell">
+                                      <img src="${this.$store.state['viewData'].userProfile.gravatarUrl}" alt="Avatar" class="avatar">
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td><strong class="clone-trigger">사용자명</strong></td>
+                                  <td>${this.$store.state['viewData'].userProfile.username}</td>
+                              </tr>
+                              <tr>
+                                  <td><strong>가입일</strong></td>
+                                  <td>${date}</td>
+                              </tr>
+							  <tr>
+							      <td><strong>권한</strong></td>
+								  <td>${this.$store.state['viewData'].userProfile.userPerm}</td>
+							  </tr>
+                              <tr>
+                                  <td><strong>ACL Group</strong></td>
+                                  <td>${this.$store.state['viewData'].userProfile.aclGroups}</td>
+                              </tr>
+                          </table>
+                      </div>`;
+                content.insertAdjacentHTML(
+                    'afterbegin',
+                    profileHtml
+                    );
+				bindCloneTrigger();
+				}
+			})
+        },
         bulma
     },
     mounted() {
         this.changeTheme(this.$store.state.currentTheme);
+		this.showProfileImage();
+		if (typeof window !== 'undefined') {
+			initEasterEgg()
+		};
+		initKonamiEasterEgg();
     }
 };
 </script>

@@ -1,12 +1,10 @@
 <template>
     <div :class="bulma('navbar-brand')">
-        <nuxtLink to="/" :class="bulma('navbar-item')"
-            ><img :src="$store.state.config['wiki.logo_url']" v-if="$store.state.config['wiki.logo_url']" />{{
-                $store.state.config['wiki.site_name']
-            }}</nuxtLink
-        >
-        <a
-            :class="bulma({ 'navbar-burger': true, 'is-active': isNavbarActive })"
+        <nuxtLink to="/" :class="bulma('navbar-item')">
+			<img v-if="$store.state.currentTheme === 'dark'" :src="$store.state.config['skin.buma.logo_dark']" />
+			<img v-else :src="$store.state.config['skin.buma.logo_light']"/>
+		</nuxtLink>
+        <a :class="bulma({ 'navbar-burger': true, 'is-active': isNavbarActive })"
             @click.prevent="toggleNavbarBurger"
             data-testid="navbar-activation-button-on-mobile"
         >

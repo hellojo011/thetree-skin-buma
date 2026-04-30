@@ -26,6 +26,9 @@ importers:
       bulma:
         specifier: 1.0.3
         version: 1.0.3
+      pnpm:
+        specifier: ^10.10.0
+        version: 10.10.0
     devDependencies:
       '@testing-library/vue':
         specifier: ^8.1.0
@@ -73,8 +76,8 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0(vue@3.5.13)
       vue-template-compiler:
-        specifier: ^2.7.16
-        version: 2.7.16
+        specifier: ^0.1.0
+        version: 0.1.0
       vuex:
         specifier: ^4.1.0
         version: 4.1.0(vue@3.5.13)
@@ -979,6 +982,9 @@ packages:
   emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
 
+  entities@1.1.2:
+    resolution: {integrity: sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==}
+
   entities@2.2.0:
     resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}
 
@@ -1135,10 +1141,6 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
-
-  he@1.2.0:
-    resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
-    hasBin: true
 
   html-encoding-sniffer@4.0.0:
     resolution: {integrity: sha512-Y22oTqIU4uuPgEemfz7NDJz6OeKf12Lsu+QC+s3BVpda64lTiMYCyGwg5ki4vFxkMwQdeZDl2adZoqUgdFuTgQ==}
@@ -1461,6 +1463,11 @@ packages:
   pify@2.3.0:
     resolution: {integrity: sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==}
     engines: {node: '>=0.10.0'}
+
+  pnpm@10.10.0:
+    resolution: {integrity: sha512-1hXbJG/nDyXc/qbY1z3ueCziPiJF48T2+Igkn7VoFJMYY33Kc8LFyO8qTKDVZX+5VnGIv6tH9WbR7mzph4FcOQ==}
+    engines: {node: '>=18.12'}
+    hasBin: true
 
   possible-typed-array-names@1.1.0:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
@@ -2032,8 +2039,8 @@ packages:
     peerDependencies:
       vue: ^3.2.0
 
-  vue-template-compiler@2.7.16:
-    resolution: {integrity: sha512-AYbUWAJHLGGQM7+cNTELw+KsOG9nl2CnSv467WobS5Cv9uk3wFcnr1Etsz2sEIHEZvw1U+o9mRlEO6QbZvUPGQ==}
+  vue-template-compiler@0.1.0:
+    resolution: {integrity: sha512-Y/kgG0p3Co10OEjlhAtHrEzPFgJvWqkMm0xqFsjFpytZ499Q/KqkkYTfeB7ghty+nEdrzOXd++glw3CyxGnmYg==}
 
   vue@3.5.13:
     resolution: {integrity: sha512-wmeiSMxkZCSc+PM2w2VRsOYAZC8GdipNFRTsLSfodVqI9mbejKeXEGr8SckuLnrQPGe3oJN5c3K0vpoU9q/wCQ==}
@@ -2933,6 +2940,8 @@ snapshots:
 
   emoji-regex@9.2.2: {}
 
+  entities@1.1.2: {}
+
   entities@2.2.0: {}
 
   entities@4.5.0: {}
@@ -3133,8 +3142,6 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
-
-  he@1.2.0: {}
 
   html-encoding-sniffer@4.0.0:
     dependencies:
@@ -3442,6 +3449,8 @@ snapshots:
   picomatch@2.3.1: {}
 
   pify@2.3.0: {}
+
+  pnpm@10.10.0: {}
 
   possible-typed-array-names@1.1.0: {}
 
@@ -4015,10 +4024,10 @@ snapshots:
       '@vue/devtools-api': 6.6.4
       vue: 3.5.13
 
-  vue-template-compiler@2.7.16:
+  vue-template-compiler@0.1.0:
     dependencies:
       de-indent: 1.0.2
-      he: 1.2.0
+      entities: 1.1.2
 
   vue@3.5.13:
     dependencies:

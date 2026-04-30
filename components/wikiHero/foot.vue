@@ -10,7 +10,7 @@
                             <span :class="bulma('icon')">
                                 <FontAwesomeIcon :icon="faCogs" />
                             </span>
-                            <span class="wiki-article-menu-text"> 특수 문서</span>
+                            <span class="wiki-article-menu-text"> {{ $t('skin_buma:special_page') }}</span>
                         </a>
                     </li>
                 </ul>

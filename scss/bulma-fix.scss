@@ -1,6 +1,6 @@
-:global(#wiki-main-title) {
+/* :global(#wiki-main-title) {
     --bulma-hero-color-l: 100%;
-}
+}*/
 
 .navbar-item, .navbar-link {
     gap: 0;
@@ -20,4 +20,13 @@
 
 :where([data-sonner-toast][data-styled=true]) {
     padding: 16px !important;
+}
+
+@keyframes name-gradient {
+  from {
+    background-position-y: 0%;
+  }
+  to {
+    background-position-y: 100%;
+  }
 }

@@ -1,18 +1,22 @@
-import { faBeer, faPause, faBan, faRandom, faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
-import { faFrown, faQuestionCircle, faThumbsDown, faThumbsUp, faCopyright } from '@fortawesome/free-regular-svg-icons';
+import { faBeer, faPause, faBan, faRandom, faCloudUploadAlt, faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faFrown, faQuestionCircle, faThumbsDown, faThumbsUp, faCopyright, faStickyNote } from '@fortawesome/free-regular-svg-icons';
+import i18next from 'i18next'
 
-const toolMenus = [
-    { href: '/NeededPages', icon: faBeer, text: '작성이 필요한 문서' },
-    { href: '/OrphanedPages', icon: faFrown, text: '고립된 문서' },
-    { href: '/OrphanedCategories', icon: faFrown, text: '고립된 분류' },
-    { href: '/UncategorizedPages', icon: faQuestionCircle, text: '분류가 되지 않은 문서' },
-    { href: '/OldPages', icon: faPause, text: '편집된 지 오래된 문서' },
-    { href: '/ShortestPages', icon: faThumbsDown, text: '내용이 짧은 문서' },
-    { href: '/LongestPages', icon: faThumbsUp, text: '내용이 긴 문서' },
-    { href: '/BlockHistory', icon: faBan, text: '차단 내역' },
-    { href: '/RandomPage', icon: faRandom, text: 'RandomPage' },
-    { href: '/Upload', icon: faCloudUploadAlt, text: '파일 올리기' },
-    { href: '/License', icon: faCopyright, text: '라이선스' }
-];
+const t = i18next.t.bind(i18next)
+
+const toolMenus = () => [
+    { href: '/NeededPages', icon: faBeer, text: t('titles.needed_pages') },
+    { href: '/OrphanedPages', icon: faFrown, text: t('titles.orphaned_pages') },
+    { href: '/OrphanedCategories', icon: faFrown, text: t('titles.orphaned_categories') },
+    { href: '/UncategorizedPages', icon: faQuestionCircle, text: t('titles.uncategorized_pages') },
+    { href: '/OldPages', icon: faPause, text: t('titles.old_pages') },
+    { href: '/ShortestPages', icon: faThumbsDown, text: t('titles.short_title_pages') },
+    { href: '/LongestPages', icon: faThumbsUp, text: t('titles.long_title_pages') },
+    { href: '/BlockHistory', icon: faBan, text: t('titles.block_history') },
+    { href: '/RandomPage', icon: faRandom, text: t('titles.random_page') },
+    { href: '/Upload', icon: faCloudUploadAlt, text: t('titles.upload') },
+    { href: '/License', icon: faCopyright, text: t('titles.license') },
+	{ href: '/Terms', icon: faStickyNote, text: t('skin_buma:terms') }
+]
 
 export default toolMenus;
