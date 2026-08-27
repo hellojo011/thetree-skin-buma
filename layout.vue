@@ -32,6 +32,7 @@
 @import './css/layout.min.css';
 @import './css/name-gradient.css';
 @import './css/userDocumentProfile.css';
+@import './css/interwiki.css';
 </style>
 
 <script>
